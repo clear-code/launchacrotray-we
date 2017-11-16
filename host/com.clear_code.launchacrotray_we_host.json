@@ -1,0 +1,9 @@
+{
+  "name": "com.clear_code.launchacrotray_we_host",
+  "description": "Launchacrotray WE Native Messaging Host",
+  "path": "host.exe",
+  "type": "stdio",
+  "allowed_extensions": [
+    "launchacrotray-we@clear-code.com"
+  ]
+}
