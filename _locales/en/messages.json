@@ -1,5 +1,5 @@
 {
-  "extensionName": { "message": "IE View WE" },
+  "extensionName": { "message": "Launchacrotray WE" },
   "extensionDescription": { "message": "Provides ability to open pages and links by Internet Explorer (Cloned IE View based on WebExtensions-based)" },
 
   "contextMenu.page.label": { "message": "Open this Page by IE" },

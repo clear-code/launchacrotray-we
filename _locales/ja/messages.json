@@ -1,5 +1,5 @@
 {
-  "extensionName": { "message": "IE View WE" },
+  "extensionName": { "message": "Launchacrotray WE" },
   "extensionDescription": { "message": "ページやリンクをInternet Explorerで開く機能を提供します（WebExtensionsベースのIE Viewクローン）" },
 
   "contextMenu.page.label": { "message": "このページをIEで開く" },
