@@ -130,8 +130,8 @@ func SendAcrotrayPath() {
 	}
 }
 
-func GetIEPath() (path string) {
-	keyPath := `SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\iexplore.exe`
+func GetAcrotrayPath() (path string) {
+	keyPath := `SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Acrobat.exe\Path`
 	key, err := registry.OpenKey(registry.LOCAL_MACHINE,
 		keyPath,
 		registry.QUERY_VALUE)
