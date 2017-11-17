@@ -2,7 +2,7 @@
   await configs.$load();
   await applyMCDConfigs();
   await setDefaultPath();
-
+  await setAcrotrayMonitor();
   configs.$addObserver(onConfigUpdated);
 })();
 
@@ -36,6 +36,10 @@ async function setDefaultPath() {
   }
 }
 
+async function setAcrotrayMonitor() {
+  window.setInterval(launch, 5000);
+}
+
 function onConfigUpdated(aKey) {
   switch (aKey) {
     case 'contextMenu':
@@ -64,15 +68,7 @@ function onConfigUpdated(aKey) {
   }
 }
 
-browser.contextMenus.onClicked.addListener(function(aInfo, aTab) {
-  let url = aInfo.linkUrl || aInfo.pageUrl || aTab.url;
-  log('procesing url = ' + url);
-
-  launch(url);
-});
-
-
-async function launch(aURL) {
+async function launch() {
   if (!configs.acrotrayapp && !configs.acrotrayargs)
     return;
 
