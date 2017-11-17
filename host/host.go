@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"github.com/clear-code/mcd-go"
 	"github.com/lhside/chrome-go"
+	"github.com/mitchellh/go-ps"
 	"golang.org/x/sys/windows/registry"
 	"io/ioutil"
 	"log"
@@ -58,7 +59,11 @@ func main() {
 	LogForDebug("Command is " + request.Command)
 	switch command := request.Command; command {
 	case "launch":
-		Launch(request.Params.Path, request.Params.Args, request.Params.Url)
+		if FindAcrotrayProcess() {
+			LogForDebug("acrotray.exe is already running")
+		} else {
+			Launch(request.Params.Path, request.Params.Args, request.Params.Url)
+		}
 	case "get-acrotray-path":
 		SendAcrotrayPath()
 	case "read-mcd-configs":
@@ -81,6 +86,18 @@ type LaunchResponse struct {
 	Path    string   `json:"path"`
 	Args    []string `json:"args"`
 	Logs    []string `json:"logs"`
+}
+
+func FindAcrotrayProcess() bool {
+	found := false
+	processes, err := Processes()
+	for _, process := range processes {
+		if process.Executable() == "acrotray.exe" {
+			found = true
+			break
+		}
+	}
+	return found
 }
 
 func Launch(path string, defaultArgs []string, url string) {
