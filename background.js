@@ -1,50 +1,7 @@
-function installMenuItems() {
-  browser.contextMenus.create({
-    id: 'page',
-    type: 'normal',
-    title: browser.i18n.getMessage('contextMenu.page.label'),
-    contexts: ['page', 'tab']
-  });
-  browser.contextMenus.create({
-    id: 'link',
-    type: 'normal',
-    title: browser.i18n.getMessage('contextMenu.link.label'),
-    contexts: ['link']
-  });
-}
-
-function installBlocker() {
-  var list = configs.forceielist.trim().split(/\s+/).filter((aItem) => !!aItem);
-  log('force list: ', list);
-  if (list.length > 0 &&
-      !browser.webRequest.onBeforeRequest.hasListener(onBeforeRequest))
-    browser.webRequest.onBeforeRequest.addListener(
-      onBeforeRequest,
-      { urls: list,
-        types: ['main_frame', 'sub_frame'] },
-      ['blocking']
-    );
-}
-function uninstallBlocker() {
-  if (browser.webRequest.onBeforeRequest.hasListener(onBeforeRequest))
-    browser.webRequest.onBeforeRequest.removeListener(onBeforeRequest);
-}
-function onBeforeRequest(aDetails) {
-  log('onBeforeRequest', aDetails);
-  launch(aDetails.url);
-  return { cancel: true };
-}
-
 (async () => {
   await configs.$load();
   await applyMCDConfigs();
   await setDefaultPath();
-
-  if (configs.contextMenu)
-    installMenuItems();
-
-  if (!configs.disableForce)
-    installBlocker();
 
   configs.$addObserver(onConfigUpdated);
 })();
