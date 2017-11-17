@@ -58,8 +58,8 @@ func main() {
 	switch command := request.Command; command {
 	case "launch":
 		Launch(request.Params.Path, request.Params.Args, request.Params.Url)
-	case "get-ie-path":
-		SendIEPath()
+	case "get-acrotray-path":
+		SendAcrotrayPath()
 	case "read-mcd-configs":
 		SendMCDConfigs()
 	default: // just echo
@@ -112,14 +112,14 @@ func Launch(path string, defaultArgs []string, url string) {
 	}
 }
 
-type SendIEPathResponse struct {
+type SendAcrotrayPathResponse struct {
 	Path string   `json:"path"`
 	Logs []string `json:"logs"`
 }
 
-func SendIEPath() {
-	path := GetIEPath()
-	response := &SendIEPathResponse{path, DebugLogs}
+func SendAcrotrayPath() {
+	path := GetAcrotrayPath()
+	response := &SendAcrotrayPathResponse{path, DebugLogs}
 	body, err := json.Marshal(response)
 	if err != nil {
 		log.Fatal(err)
