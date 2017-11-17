@@ -24,7 +24,7 @@ async function setDefaultPath() {
   if (configs.acrotrayapp)
     return;
   try {
-    let response = await send({ command: 'get-ie-path' });
+    let response = await send({ command: 'get-acrotray-path' });
     if (response) {
       log('Received: ', response);
       if (response.path)
