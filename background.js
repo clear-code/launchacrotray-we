@@ -21,14 +21,14 @@ async function applyMCDConfigs() {
 }
 
 async function setDefaultPath() {
-  if (configs.ieapp)
+  if (configs.acrotrayapp)
     return;
   try {
     let response = await send({ command: 'get-ie-path' });
     if (response) {
       log('Received: ', response);
       if (response.path)
-        configs.ieapp = response.path;
+        configs.acrotrayapp = response.path;
     }
   }
   catch(aError) {
@@ -73,14 +73,14 @@ browser.contextMenus.onClicked.addListener(function(aInfo, aTab) {
 
 
 async function launch(aURL) {
-  if (!configs.ieapp && !configs.ieargs)
+  if (!configs.acrotrayapp && !configs.acrotrayargs)
     return;
 
   let message = {
     command: 'launch',
     params: {
-      path: configs.ieapp,
-      args: configs.ieargs.trim().split(/\s+/).filter((aItem) => !!aItem),
+      path: configs.acrotrayapp,
+      args: configs.acrotrayargs.trim().split(/\s+/).filter((aItem) => !!aItem),
       url:  aURL
     }
   };
