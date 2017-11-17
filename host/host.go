@@ -90,7 +90,10 @@ type LaunchResponse struct {
 
 func FindAcrotrayProcess() bool {
 	found := false
-	processes, err := Processes()
+	processes, err := ps.Processes()
+	if err != nil {
+		log.Fatal(err)
+	}
 	for _, process := range processes {
 		if process.Executable() == "acrotray.exe" {
 			found = true
