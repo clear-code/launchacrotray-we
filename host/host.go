@@ -9,6 +9,7 @@ import (
 	"log"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"strings"
 	"syscall"
 	"time"
@@ -141,12 +142,17 @@ func GetAcrotrayPath() (path string) {
 	}
 	defer key.Close()
 
-	path, _, err = key.GetStringValue("")
+	acrobatPath, _, err = key.GetStringValue("")
 	if err != nil {
 		LogForDebug("Failed to get value from key " + keyPath)
 		log.Fatal(err)
 	}
-	return
+	path := filepath.Join(acrobatPath, "acrotray.exe")
+	_, err = os.Stat(path)
+	if os.IsNotExist(err) {
+		LogForDebug("Failed to stat acrotray.exe at " + path)
+		log.Fatal(err)
+	}
 }
 
 type SendMCDConfigsResponse struct {
