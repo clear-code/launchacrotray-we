@@ -156,13 +156,11 @@ func GetAcrotrayPath() (path string) {
 }
 
 type SendMCDConfigsResponse struct {
-	IEApp        string   `json:"ieapp,omitempty"`
-	IEArgs       string   `json:"ieargs,omitempty"`
-	ForceIEList  string   `json:"forceielist,omitempty"`
-	DisableForce bool     `json:"disableForce,omitempty"`
-	ContextMenu  bool     `json:"contextMenu,omitempty"`
-	Debug        bool     `json:"debug,omitempty"`
-	Logs         []string `json:"logs"`
+	AcrotrayApp   string   `json:"acrotrayapp,omitempty"`
+	AcrotrayArgs  string   `json:"acrotrayargs,omitempty"`
+	UseCustomPath bool     `json:"usecustompath,omitempty"`
+	Debug         bool     `json:"debug,omitempty"`
+	Logs          []string `json:"logs"`
 }
 
 func SendMCDConfigs() {
@@ -177,25 +175,17 @@ func SendMCDConfigs() {
 
 	response := &SendMCDConfigsResponse{}
 
-	ieApp, err := configs.GetStringValue("extensions.launchacrotray.ieapp")
+	acrotrayApp, err := configs.GetStringValue("extensions.launchacrotray.acrotrayapp")
 	if err == nil {
-		response.IEApp = ieApp
+		response.AcrotrayApp = acrotrayApp
 	}
-	ieArgs, err := configs.GetStringValue("extensions.launchacrotray.ieargs")
+	acrotrayArgs, err := configs.GetStringValue("extensions.launchacrotray.acrotrayargs")
 	if err == nil {
-		response.IEArgs = ieArgs
+		response.AcrotrayArgs = acrotrayArgs
 	}
-	forceIEList, err := configs.GetStringValue("extensions.launchacrotray.forceielist")
+	useCustomPath, err := configs.GetBooleanValue("extensions.launchacrotray.usecustompath")
 	if err == nil {
-		response.ForceIEList = forceIEList
-	}
-	disableForce, err := configs.GetBooleanValue("extensions.launchacrotray.disableForce")
-	if err == nil {
-		response.DisableForce = disableForce
-	}
-	contextMenu, err := configs.GetBooleanValue("extensions.launchacrotray.contextMenu")
-	if err == nil {
-		response.ContextMenu = contextMenu
+		response.UseCustomPath = useCustomPath
 	}
 	debug, err := configs.GetBooleanValue("extensions.launchacrotray.debug")
 	if err == nil {
