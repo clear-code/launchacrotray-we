@@ -15,10 +15,8 @@ function log(aMessage, ...aArgs)
 }
 
 configs = new Configs({
-	ieapp        : '',
-	ieargs       : '',
-	forceielist  : '',
-	disableForce : false,
-	contextMenu  : true,
+	acrotrayapp  : '',
+	acrotrayargs : '',
+	useCustomPath: false,
 	debug        : false
 });
