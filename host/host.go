@@ -153,6 +153,7 @@ func GetAcrotrayPath() (path string) {
 		LogForDebug("Failed to stat acrotray.exe at " + path)
 		log.Fatal(err)
 	}
+	return
 }
 
 type SendMCDConfigsResponse struct {
