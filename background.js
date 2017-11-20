@@ -68,7 +68,7 @@ function onConfigUpdated(aKey) {
   }
 }
 
-async function launch() {
+function launch() {
   if (!configs.acrotrayapp && !configs.acrotrayargs)
     return;
 
