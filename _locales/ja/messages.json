@@ -1,17 +1,12 @@
 {
   "extensionName": { "message": "Launchacrotray WE" },
-  "extensionDescription": { "message": "ページやリンクをInternet Explorerで開く機能を提供します（WebExtensionsベースのIE Viewクローン）" },
-
-  "contextMenu.page.label": { "message": "このページをIEで開く" },
-  "contextMenu.link.label": { "message": "このリンクをIEで開く" },
+  "extensionDescription": { "message": "Acrotray.exeが起動していなければ、起動する機能を提供します" },
 
   "config.acrotrayapp.label.before":  { "message": "Acrotray.exeのパス" },
   "config.acrotrayapp.label.after":   { "message": "" },
   "config.acrotrayargs.label.before": { "message": "起動オプション" },
   "config.acrotrayargs.label.after":  { "message": "" },
-  "config.contextMenu.label":   { "message": "コンテキストメニューに「IEで開く」を追加する" },
-  "config.forceielist.caption": { "message": "Internet Explorerで常に開くWebサイト" },
-  "config.disableForce.label":  { "message": "無効化" },
 
+  "config.watchInterval.label":   { "message": "Acrotrayが起動しているか監視する間隔(秒)" },
   "config.debug.label": { "message": "デバッグログを出力" }
 }

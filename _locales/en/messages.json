@@ -1,17 +1,13 @@
 {
   "extensionName": { "message": "Launchacrotray WE" },
-  "extensionDescription": { "message": "Provides ability to open pages and links by Internet Explorer (Cloned IE View based on WebExtensions-based)" },
-
-  "contextMenu.page.label": { "message": "Open this Page by IE" },
-  "contextMenu.link.label": { "message": "Open this Link by IE" },
+  "extensionDescription": { "message": "Provides ability to launch Acrotray.exe automatically" },
 
   "config.acrotrayapp.label.before":  { "message": "Path to Acrotray.exe:" },
   "config.acrotrayapp.label.after":   { "message": "" },
   "config.acrotrayargs.label.before": { "message": "Command Line Arguments:" },
   "config.acrotrayargs.label.after":  { "message": "" },
-  "config.contextMenu.label":   { "message": "Add \"Open by IE\" items to the context menu" },
-  "config.forceielist.caption": { "message": "Websites to be opened by IE always" },
-  "config.disableForce.label":  { "message": "Disable" },
+
+  "config.watchInterval.label":   { "message": "Interval to watch status of Acrotray.exe (seconds)" },
 
   "config.debug.label": { "message": "Print debug log" }
 }
