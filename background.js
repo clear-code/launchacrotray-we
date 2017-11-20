@@ -81,7 +81,7 @@ async function launch() {
       url:  aURL
     }
   };
-  try{
+  try {
     let response = await send(message);
     log('Received: ', response);
   }
