@@ -1,4 +1,5 @@
 (async () => {
+  log('startup Launchacrotray WE');
   await configs.$load();
   await applyMCDConfigs();
   await setDefaultPath();
