@@ -78,7 +78,7 @@ func main() {
 
 func LogForDebug(message string) {
 	DebugLogs = append(DebugLogs, message)
-	log.Print(message)
+	log.Println(message)
 }
 
 type LaunchResponse struct {
