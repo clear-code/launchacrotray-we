@@ -162,9 +162,9 @@ func GetAcrotrayPath() (path string) {
 	}
 	defer key.Close()
 
-	acrobatPath, _, err := key.GetStringValue("")
+	acrobatPath, _, err := key.GetStringValue("Path")
 	if err != nil {
-		LogForDebug("Failed to get value from key " + keyPath)
+		LogForDebug("Failed to get value from <Path> of key " + keyPath)
 		log.Fatal(err)
 	}
 	path = filepath.Join(acrobatPath, "acrotray.exe")
