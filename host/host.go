@@ -152,7 +152,7 @@ func SendAcrotrayPath() {
 }
 
 func GetAcrotrayPath() (path string) {
-	keyPath := `SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Acrobat.exe\Path`
+	keyPath := `SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Acrobat.exe`
 	key, err := registry.OpenKey(registry.LOCAL_MACHINE,
 		keyPath,
 		registry.QUERY_VALUE)
