@@ -78,8 +78,7 @@ async function launch() {
     command: 'launch',
     params: {
       path: configs.acrotrayapp,
-      args: configs.acrotrayargs.trim().split(/\s+/).filter((aItem) => !!aItem),
-      url:  aURL
+      args: configs.acrotrayargs.trim().split(/\s+/).filter((aItem) => !!aItem)
     }
   };
   try {
