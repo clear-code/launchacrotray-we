@@ -33,7 +33,7 @@ Here is the preference keys.
 * `extensions.launchacrotray.acrotrayargs`
   * Specify command arguments for `acrotray.exe`. The default value is empty.
 * `extensions.launchacrotray.watchinterval`
-  * Specify interval to check `acrotray.exe` process. The default interval is 15 seconds.
+  * Specify interval to check `acrotray.exe` process. The default interval is 60 seconds.
 * `extensions.launchacrotray.debug`
   * Specify whether debug mode is enabled. The default value is `false`.
 

@@ -17,6 +17,6 @@ function log(aMessage, ...aArgs)
 configs = new Configs({
 	acrotrayapp  : '',
 	acrotrayargs : '',
-	watchinterval: 15,
+	watchinterval: 60,
 	debug        : false
 });
