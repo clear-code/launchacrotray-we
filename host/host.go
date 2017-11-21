@@ -56,11 +56,11 @@ func main() {
 		log.SetFlags(log.Ldate | log.Ltime)
 	}
 
-	LogForDebug("Command is " + request.Command)
+	//LogForDebug("Command is " + request.Command)
 	switch command := request.Command; command {
 	case "launch":
 		if FindAcrotrayProcess() {
-			LogForDebug("acrotray.exe is already running")
+			//LogForDebug("acrotray.exe is already running")
 			SendRunningResponse(request.Params.Path, request.Params.Args, request.Params.Url)
 		} else {
 			Launch(request.Params.Path, request.Params.Args, request.Params.Url)
