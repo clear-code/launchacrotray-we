@@ -179,6 +179,7 @@ func GetAcrotrayPath() (path string) {
 type SendMCDConfigsResponse struct {
 	AcrotrayApp   string   `json:"acrotrayapp,omitempty"`
 	AcrotrayArgs  string   `json:"acrotrayargs,omitempty"`
+	WatchInterval uint     `json:"watchinterval,omitempty"`
 	Debug         bool     `json:"debug,omitempty"`
 	Logs          []string `json:"logs"`
 }
@@ -202,6 +203,14 @@ func SendMCDConfigs() {
 	acrotrayArgs, err := configs.GetStringValue("extensions.launchacrotray.acrotrayargs")
 	if err == nil {
 		response.AcrotrayArgs = acrotrayArgs
+	}
+	watchInterval, err := configs.GetIntegerValue("extensions.launchacrotray.watchinterval")
+	if err == nil {
+		if watchInterval < 0 {
+			response.WatchInterval = 10
+		} else {
+			response.WatchInterval = uint(watchInterval)
+		}
 	}
 	debug, err := configs.GetBooleanValue("extensions.launchacrotray.debug")
 	if err == nil {
