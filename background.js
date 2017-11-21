@@ -44,28 +44,20 @@ async function setAcrotrayMonitor() {
 
 function onConfigUpdated(aKey) {
   switch (aKey) {
-    case 'contextMenu':
-      if (configs.contextMenu) {
-        installMenuItems();
-      }
-      else {
-        browser.contextMenus.removeAll();
-      }
+    case 'watchInterval':
+      log('watchInterval is set', configs.watchInterval);
       break;
 
-    case 'forceielist':
-      uninstallBlocker();
-      if (!configs.disableForce)
-        installBlocker();
+    case 'acrotrayapp':
+      log('acrotrayapp is set', configs.acrotrayapp);
       break;
 
-    case 'disableForce':
-      if (configs.disableForce) {
-        uninstallBlocker();
-      }
-      else {
-        installBlocker();
-      }
+    case 'acrotrayargs':
+      log('acrotrayargs is set', configs.acrotrayargs);
+      break;
+
+    case 'debug':
+      log('debug is set', configs.debug);
       break;
   }
 }
