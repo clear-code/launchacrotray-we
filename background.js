@@ -39,7 +39,7 @@ async function setDefaultPath() {
 
 async function setAcrotrayMonitor() {
   log('setup Acrotray.exe monitor');
-  window.setInterval(launch, 5000);
+  window.setInterval(launch, configs.watchInterval);
 }
 
 function onConfigUpdated(aKey) {
