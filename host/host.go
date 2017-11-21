@@ -179,7 +179,6 @@ func GetAcrotrayPath() (path string) {
 type SendMCDConfigsResponse struct {
 	AcrotrayApp   string   `json:"acrotrayapp,omitempty"`
 	AcrotrayArgs  string   `json:"acrotrayargs,omitempty"`
-	UseCustomPath bool     `json:"usecustompath,omitempty"`
 	Debug         bool     `json:"debug,omitempty"`
 	Logs          []string `json:"logs"`
 }
@@ -203,10 +202,6 @@ func SendMCDConfigs() {
 	acrotrayArgs, err := configs.GetStringValue("extensions.launchacrotray.acrotrayargs")
 	if err == nil {
 		response.AcrotrayArgs = acrotrayArgs
-	}
-	useCustomPath, err := configs.GetBooleanValue("extensions.launchacrotray.usecustompath")
-	if err == nil {
-		response.UseCustomPath = useCustomPath
 	}
 	debug, err := configs.GetBooleanValue("extensions.launchacrotray.debug")
 	if err == nil {

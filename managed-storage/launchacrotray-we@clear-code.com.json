@@ -3,7 +3,6 @@
   "description": "Managed Storage for Launchacrotray WE",
   "type": "storage",
   "data": {
-    "useCustomPath": false,
     "watchInterval": 15
   }
 }

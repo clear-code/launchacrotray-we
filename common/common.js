@@ -17,7 +17,6 @@ function log(aMessage, ...aArgs)
 configs = new Configs({
 	acrotrayapp  : '',
 	acrotrayargs : '',
-	useCustomPath: false,
 	watchInterval: 15,
 	debug        : false
 });
