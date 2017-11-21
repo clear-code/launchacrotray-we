@@ -7,6 +7,6 @@
   "config.acrotrayargs.label.before": { "message": "起動オプション" },
   "config.acrotrayargs.label.after":  { "message": "" },
 
-  "config.watchInterval.label":   { "message": "Acrotrayが起動しているか監視する間隔(秒)" },
+  "config.watchInterval.label":   { "message": "Acrotray.exeが起動しているか監視する間隔(秒)" },
   "config.debug.label": { "message": "デバッグログを出力" }
 }
