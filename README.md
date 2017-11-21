@@ -22,6 +22,21 @@ Provides ability to watch acrotray.exe and launches it automatically if it isn't
 $ make host
 ```
 
+# How to customize default addon behavior
+
+This addon supports to customize by MCD.
+
+Here is the preference keys.
+
+* `extensions.launchacrotray.acrotrayapp`
+  * Specify path to `acrotray.exe`. The default value is filled in by registry. For example, `C:\Program Files (x86)\Adobe\Acrobat 2017\Acrobat\acrotray.exe`.
+* `extensions.launchacrotray.acrotrayargs`
+  * Specify command arguments for `acrotray.exe`. The default value is empty.
+* `extensions.launchacrotray.watchinterval`
+  * Specify interval to check `acrotray.exe` process. The default interval is 15 seconds.
+* `extensions.launchacrotray.debug`
+  * Specify whether debug mode is enabled. The default value is `false`.
+
 # License
 
 MPL 2.0
