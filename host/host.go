@@ -61,6 +61,7 @@ func main() {
 	case "launch":
 		if FindAcrotrayProcess() {
 			LogForDebug("acrotray.exe is already running")
+			SendRunningResponse(request.Params.Path, request.Params.Args, request.Params.Url)
 		} else {
 			Launch(request.Params.Path, request.Params.Args, request.Params.Url)
 		}
@@ -101,6 +102,21 @@ func FindAcrotrayProcess() bool {
 		}
 	}
 	return found
+}
+
+func SendRunningResponse(path string, defaultArgs []string, url string) {
+	args := append(defaultArgs, url)
+	response := &LaunchResponse{true, path, args, DebugLogs}
+	response.Success = true
+	response.Logs = DebugLogs
+	body, err := json.Marshal(response)
+	if err != nil {
+		log.Fatal(err)
+	}
+	err = chrome.Post(body, os.Stdout)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func Launch(path string, defaultArgs []string, url string) {
